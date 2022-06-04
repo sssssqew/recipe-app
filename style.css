@@ -126,11 +126,8 @@ body{
   padding: 20px;
   overflow-y: scroll;
   border-radius: 10px 10px 0px 0px;
-  background-color: rgba(255, 255, 255, 0.2);
-  font-size: 0.8rem;
-}
-.recipe-screen .details:hover{
   background-color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
 }
 .recipe-screen .details::-webkit-scrollbar{
   display: none;
