@@ -78,7 +78,7 @@ async function showFullRecipe(receipeId){
     screen.recipe.querySelector('.details h2').innerText = recipe.strMeal
 
     for(let i=1;i<20;i++){
-      if(recipe[`strIngredient${i}`] === ''){
+      if(recipe[`strIngredient${i}`] === '' || recipe[`strIngredient${i}`] === null){
         continue;
       }
       const li = document.createElement('li')
