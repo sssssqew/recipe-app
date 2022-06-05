@@ -79,7 +79,7 @@ async function showFullRecipe(receipeId){
 
     for(let i=1;i<20;i++){
       if(recipe[`strIngredient${i}`] === ''){
-        break;
+        continue;
       }
       const li = document.createElement('li')
       li.innerText = recipe[`strIngredient${i}`] + ' - ' + recipe[`strMeasure${i}`]
