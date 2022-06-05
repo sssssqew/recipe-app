@@ -16,7 +16,7 @@ body{
   transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  max-width: 550px;
+  max-width: 350px;
   background: #272a2f;
 }
 .hidden{
@@ -35,16 +35,17 @@ body{
   color: #fff;
   font-size: 18px;
   background: #222425;
-  border-bottom: 1px solid #4c98ec;
+  border-bottom: 1px solid #485b6b;
+  user-select: none;
+  letter-spacing: 2px;
 }
 .main-screen .categories{
-  padding: 15px 10px 10px;
+  padding: 10px 10px;
   display: grid;
   grid-auto-flow: column;
-  overflow-y: auto;
-  overscroll-behavior-x: contain; /* 스크롤 체이닝 방지 */
-  scroll-snap-type: x mandatory; /* x축 스크롤 스냅 */
+  overflow-x: auto;
   gap: 10px;
+  width: 100%;
 }
 .main-screen .categories > div{
   background: #485b6b;
@@ -52,13 +53,22 @@ body{
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
+  user-select: none;
 }
 .main-screen .categories > div.active{
   background: #4c98ec;
   color: #fff;
 }
 .main-screen .categories::-webkit-scrollbar{
-  display: none; /* 스크롤바 제거 */
+  width: 0;
+  background-color: transparent;
+}
+.main-screen .categories:hover::-webkit-scrollbar{
+  background-color: #111;
+}
+.main-screen .categories:hover::-webkit-scrollbar-thumb{
+  background-color: #485b6b;
+  border-radius: 5px;
 }
 .main-screen .recipe-list{
   padding: 10px;
@@ -67,11 +77,16 @@ body{
   flex-wrap: wrap;
   gap: 10px;
   overflow-y: auto;
-  height: 78vh;
+  height: 70vh;
+}
+.main-screen .recipe-list::-webkit-scrollbar{
+  display: none;
 }
 .main-screen .recipe-list > .item{
   border: 1px solid #485b6b;
   width: calc(calc(100%/2) - 5px);
+  user-select: none;
+  cursor: pointer;
 }
 .main-screen .recipe-list > .item .thumbnail img{
   width: 100%;
@@ -115,7 +130,8 @@ body{
 }
 .recipe-screen .thumbnail img{
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 .recipe-screen .details{
   position: absolute;
@@ -126,8 +142,11 @@ body{
   padding: 20px;
   overflow-y: scroll;
   border-radius: 10px 10px 0px 0px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   font-size: 0.8rem;
+}
+.recipe-screen .details:hover{
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .recipe-screen .details::-webkit-scrollbar{
   display: none;
@@ -150,6 +169,30 @@ body{
 }
 .recipe-screen .details > div ol li{
   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 420px){
+  .app{
+    max-width: unset;
+  }
+  .main-screen .recipe-list{
+    height: 78%;
+  }
+  .main-screen .categories::-webkit-scrollbar{
+    display: none;
+  }
+  .recipe-screen .back-btn{ 
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ddd;
+  }
+  .recipe-screen .details{
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 1.2rem;
+    border-radius: 0px;
+  }
+  .recipe-screen .details > div ol{
+    padding: 30px;
+  }
 }
 
 
